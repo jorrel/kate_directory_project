@@ -426,7 +426,10 @@ class DPFinder(KDialog):
     name = file_info.fileName()
     full_path = file_info.absFilePath()
     dir_path = QString(full_path).remove(name)
-    lvi = ListViewItem(self.list_view, name, full_path)
+    
+    name_with_path = file_info.absFilePath().replace(project_path,'')
+    lvi = ListViewItem(self.list_view, name_with_path, full_path)
+    
     if pixmap:
       lvi.setPixmap(0, pixmap)
     else:
